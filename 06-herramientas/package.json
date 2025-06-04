@@ -1,0 +1,15 @@
+{
+  "name": "js-herramientas",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint src --ext .js",
+    "format": "prettier --write src"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "vite": "^5.0.0"
+  }
+} 
