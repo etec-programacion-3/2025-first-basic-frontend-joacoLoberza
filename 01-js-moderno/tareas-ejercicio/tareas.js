@@ -21,3 +21,11 @@ export function removeTask(index) {
   tasks.splice(index, 1);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 } 
+
+// Edita una tarea
+export function editTask(task, newTask) {
+  let tasksList = getTasks()
+  const idx = tasksList.findIndex(t => t.STORAGE_KEY === task)
+  tasksList.splice(idx, 1, newTask)
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasksList))
+}
