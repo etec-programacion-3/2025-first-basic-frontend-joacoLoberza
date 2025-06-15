@@ -12,7 +12,7 @@ Esta carpeta te enseña a consumir APIs REST desde el frontend usando JavaScript
 
 ## ¿Cómo usarlo?
 1. Asegúrate de que tu backend esté corriendo en `http://localhost:5000/api`.
-2. Abre `fetch/index.html` o `axios/index.html` en tu navegador y cambia el script en el HTML para probar el ejemplo resuelto o el ejercicio.
+2. Abre `fetch/index.html` o `axittp://localhost:os/index.html` en tu navegador y cambia el script en el HTML para probar el ejemplo resuelto o el ejercicio.ttp://localhost:
 3. Observa cómo se listan los productos y sigue los comentarios en el código para completar los ejercicios.
 
 ## Ejercicios propuestos

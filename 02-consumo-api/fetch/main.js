@@ -1,5 +1,10 @@
+/*Use el backend de este repositorio:
+
+  https://github.com/dqmdz/backend.express.git
+*/
+
 // URL base de la API de productos
-const BASE_URL = 'http://localhost:5000/api/products';
+const BASE_URL = 'http://localhost:3000/api/products';
 
 // Referencias a los elementos del DOM
 const list = document.getElementById('product-list');
@@ -30,19 +35,37 @@ async function fetchProducts() {
 // EJERCICIO 1: Crear producto
 // Completa esta función para enviar los datos del formulario usando fetch POST
 async function createProduct(name, price, description) {
-  // Tu código aquí
+  await fetch(BASE_URL, {
+    method:'POST',
+    headers: {
+      'Content-Type':"application/json"
+    },
+    body: JSON.stringify({
+      'name':name,
+      'price':price,
+      'description':description
+    })
+  })
 }
 
 // EJERCICIO 2: Eliminar producto
 // Completa esta función para eliminar un producto usando fetch DELETE
 async function deleteProduct(id) {
-  // Tu código aquí
+  await fetch(`${BASE_URL}/${id}`,{
+    method: 'DELETE',
+    headers: {
+      'Content-Type':'application/json'
+    }
+  })
 }
 
 // EJERCICIO 3: Ver detalles de producto
 // Completa esta función para mostrar detalles usando fetch GET /products/:id
 async function showDetails(id) {
-  // Tu código aquí
+  const product = (await fetch(`${BASE_URL}/${id}`))
+  const details = await product.json()
+  alert(`${details.name}\n\n  Price: ${details.price}\n  Description: ${details.description}`)
+
 }
 
 // Maneja el submit del formulario para crear un producto
