@@ -28,4 +28,6 @@ Esta carpeta te enseña cómo simular navegación entre vistas en una Single Pag
 ## Ejercicios
 1. Agrega una vista de "detalle" que reciba un parámetro (por ejemplo, /producto/1).
 2. Implementa navegación con botones "Atrás" y "Adelante" del navegador.
-3. Usa history.pushState para rutas limpias (sin #). 
+3. Usa history.pushState para rutas limpias (sin #).  
+
+# 05 - Nombre: Joaquín Loberza

@@ -4,13 +4,15 @@ const app = document.getElementById('app');
 // Definición de rutas y sus vistas asociadas (solo básicas)
 const routes = {
   '/': () => '<h1>Inicio</h1><p>Bienvenido a la SPA.</p>',
-  '/productos': () => '<h1>Productos</h1><p>Lista de productos aquí.</p>',
-  '/contacto': () => '<h1>Contacto</h1><p>Formulario de contacto aquí.</p>'
-  // TODO: Agrega aquí la ruta y la vista para /producto/1
+  '/productos': () => '<h1>Productos</h1><p>Lista de productos aquí:</p>',
+  '/contacto': () => '<h1>Contacto</h1><p>Formulario de contacto aquí.</p>',
+  '/productos/1': () => '<h1>Detalles del Producto 1</h1><p>Vista de detalles del producto 1.</p>'
 };
 
 // Renderiza la vista correspondiente a la ruta actual
 const render = route => {
+  console.log(route)
+  console.log(routes[route])
   app.innerHTML = routes[route] ? routes[route]() : '<h1>404</h1><p>Página no encontrada.</p>';
 };
 
@@ -28,10 +30,18 @@ document.querySelector('nav').addEventListener('click', e => {
   if (e.target.matches('button[data-route]')) {
     navigate(e.target.dataset.route);
   }
+  if (e.target.matches('button[data-navigation]')) {
+    if (e.target.dataset.navigation === 'back') {
+      history.back();
+      console.log("atras")
+    }
+    if (e.target.dataset.navigation === 'forward') {
+      history.forward();
+      console.log("adelante")
+    }
+    render(window.location.pathname)
+  }
 });
-
-// TODO: Maneja el evento popstate para soportar navegación con los botones del navegador
-// window.addEventListener(...)
 
 // Render inicial según la ruta actual
 render(window.location.pathname); 
