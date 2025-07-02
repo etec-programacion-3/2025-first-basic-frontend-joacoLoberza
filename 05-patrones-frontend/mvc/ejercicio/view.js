@@ -1,4 +1,5 @@
 // Vista: Se encarga de la presentación y la interacción con el usuario
+import { editForm } from "./components/editForm";
 export class TaskView {
   constructor() {
     // Referencias a los elementos del DOM
@@ -13,8 +14,15 @@ export class TaskView {
     tasks.forEach((task, idx) => {
       const li = document.createElement('li');
       li.textContent = task;
-      // TODO: Agrega aquí el botón y la lógica para eliminar la tarea
-      // TODO: Agrega aquí el botón y la lógica para editar la tarea
+      li.dataset.id = idx;
+      const remove = document.createElement('button');
+      remove.textContent = 'Eliminar';
+      remove.classList.add('remove');
+      li.appendChild(remove);
+      const edit = document.createElement('button');
+      edit.textContent = 'Editar';
+      edit.classList.add('edit');
+      li.appendChild(edit);
       this.list.appendChild(li);
     });
   }
@@ -29,8 +37,27 @@ export class TaskView {
   }
 
   // TODO: Asocia el evento de eliminar tarea a la lista
-  // bindRemoveTask(handler) { ... }
+  bindRemoveTask(handler) {
+    this.list.addEventListener('click', e => {
+      e.preventDefault()
+      if (e.target.matches('button.remove')) {
+        handler(e.target.parentElement.dataset.id,)
+      }
+    })
+  }
 
   // TODO: Asocia el evento de editar tarea a la lista
-  // bindEditTask(handler) { ... }
+  bindEditTask(handler) {
+    this.list.addEventListener('click', e => {
+      e.preventDefault();
+      if (e.target.matches('button.edit')) {
+        form = new editForm();
+        li = e.target.parentElement;
+        li.textContent = '';
+        li.insertAdjacentElement('beforebegin', form.newForm())
+        submitBtn = li.firstElementChild.lastElementChild;
+        submitBtn.onclick = 
+      }
+    })
+  }
 } 
