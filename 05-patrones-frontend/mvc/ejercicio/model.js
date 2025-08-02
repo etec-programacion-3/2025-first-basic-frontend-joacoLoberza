@@ -22,6 +22,12 @@ export class TaskModel {
     this._commit();
   }
 
+  // Editar una tarea
+  editTask(idx, task) {
+    this.tasks[idx]=task
+    this._commit();
+  }
+
   // Guarda el estado actual de las tareas en localStorage
   _commit() {
     localStorage.setItem('mvc-tasks', JSON.stringify(this.tasks));

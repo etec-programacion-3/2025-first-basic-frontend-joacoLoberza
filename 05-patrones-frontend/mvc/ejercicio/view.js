@@ -1,5 +1,4 @@
 // Vista: Se encarga de la presentación y la interacción con el usuario
-import { editForm } from "./components/editForm";
 export class TaskView {
   constructor() {
     // Referencias a los elementos del DOM
@@ -14,15 +13,16 @@ export class TaskView {
     tasks.forEach((task, idx) => {
       const li = document.createElement('li');
       li.textContent = task;
-      li.dataset.id = idx;
-      const remove = document.createElement('button');
-      remove.textContent = 'Eliminar';
-      remove.classList.add('remove');
-      li.appendChild(remove);
-      const edit = document.createElement('button');
-      edit.textContent = 'Editar';
-      edit.classList.add('edit');
-      li.appendChild(edit);
+      //Botón logica eliminar tarea:
+      const deleteBtn = document.createElement('button');
+      deleteBtn.classList.add('deleteBtn');
+      deleteBtn.textContent = 'Eliminar';
+      li.insertAdjacentElement('beforeend',deleteBtn);
+      //Botón logica editar tarea
+      const editBtn = document.createElement('button');
+      editBtn.classList.add('editBtn');
+      editBtn.textContent = 'Editar';
+      li.insertAdjacentElement('beforeend', editBtn)
       this.list.appendChild(li);
     });
   }
@@ -36,27 +36,33 @@ export class TaskView {
     };
   }
 
-  // TODO: Asocia el evento de eliminar tarea a la lista
+  // Evento de eleminar tarea asociado.
   bindRemoveTask(handler) {
-    this.list.addEventListener('click', e => {
-      e.preventDefault()
-      if (e.target.matches('button.remove')) {
-        handler(e.target.parentElement.dataset.id,)
+    const deleteBtns = [...document.querySelectorAll('.deleteBtn')]
+    deleteBtns.forEach((btn,idx) => {
+      btn.onclick = e => {
+        e.preventDefault();
+        handler(idx); //Llama al controlador con el indice de lo que hay que borrar.
       }
     })
   }
 
-  // TODO: Asocia el evento de editar tarea a la lista
+  // Asocia el evento de editar tarea a la lista
   bindEditTask(handler) {
-    this.list.addEventListener('click', e => {
-      e.preventDefault();
-      if (e.target.matches('button.edit')) {
-        form = new editForm();
-        li = e.target.parentElement;
-        li.textContent = '';
-        li.insertAdjacentElement('beforebegin', form.newForm())
-        submitBtn = li.firstElementChild.lastElementChild;
-        submitBtn.onclick = 
+    const editBtns = [...document.querySelectorAll('.editBtn')];
+    editBtns.forEach((btn, idx) => {
+      btn.onclick = e => {
+        const li = btn.parentElement
+        li.innerHTML = `
+        <form>
+          <input type="text" class="editInput" placeholder="Editar..." required/>
+          <button type="submit">Listo</button>
+        </form>
+        `
+        li.firstElementChild.onsubmit = e => {
+          e.preventDefault();
+          handler(idx, li.firstElementChild.firstElementChild.value)
+        }
       }
     })
   }
