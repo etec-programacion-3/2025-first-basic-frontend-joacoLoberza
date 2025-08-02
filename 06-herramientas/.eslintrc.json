@@ -11,6 +11,6 @@
   "rules": {
     "no-unused-vars": "warn",
     "semi": ["error", "always"],
-    "indent": ["warn", 2] //Si una identación no respeta dos espacios.
+    "indent": ["warn", 2] //Si una identación no respeta dos espacios de identación.
   }
 } 
