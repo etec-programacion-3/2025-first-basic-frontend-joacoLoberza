@@ -10,6 +10,7 @@
   },
   "rules": {
     "no-unused-vars": "warn",
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "indent": ["warn", 2] //Si una identación no respeta dos espacios.
   }
 } 

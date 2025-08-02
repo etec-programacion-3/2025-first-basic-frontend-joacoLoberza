@@ -5,4 +5,4 @@ import dayjs from 'dayjs';
 const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
 document.body.innerHTML = `<h1>Fecha y hora actual (con dayjs):</h1><p>${now}</p>`;
 
-// Puedes ejecutar este archivo con Vite y ver el resultado en el navegador 
+// Puedes ejecutar este archivo con Vite y ver el resultado en el navegador
