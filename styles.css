@@ -1,0 +1,241 @@
+:root {
+    --black01: rgb(0,0,0);
+    --black02: rgb(40, 40, 40);
+    --brown01: rgb(203, 167, 120);
+    --gray01: rgb(244, 244, 244);
+    --gray02: rgb(76, 76, 76);
+    --white01: rgb(255, 255, 255);
+    --white02: rgb(249, 249, 249);
+    
+    --roboto-serif: "Roboto", serif;
+    --montserrat-sans_serif: "Montserrat", sans-serif;
+}
+
+body {
+    align-items: center;
+    background: url(img/Fondo.png) center/cover no-repeat fixed;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vh;
+    overflow: hidden;
+    padding: 0px;
+}
+
+h1, h2{
+    color:var(--black02);
+    font-family: var(--roboto-serif);
+}
+
+.edit-button{
+    background-color: rgba(0,0,0,0.0);
+    border: 0px;
+    color: var(--gray02);
+    font-family: var(--montserrat-sans_serif);
+    font-size: 12px;
+    padding: 5px;
+    margin: 0px 5px;
+}
+
+.edit-button:hover {
+    color: var(--brown01);
+}
+
+.book-data {
+    font-family: var(--montserrat-sans_serif);
+    font-size: 14px;
+}
+
+.edition-tr td {
+    background-color: var(--white02);
+    padding:5px 0px;
+
+}
+
+td:has(> .edit-button) {
+    display: inline;
+}
+
+.delete-book{
+    background-color: rgba(0,0,0,0.0);
+    border: 0px;
+    color: var(--gray02);
+    font-family: var(--montserrat-sans_serif);
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+}
+
+.delete-book:hover {
+    font-weight: bold;
+}
+
+td:has(> .delete-book) {
+    display: inline;
+}
+
+#form-filtro {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#form-filtro label{
+    font-family: var(--montserrat-sans_serif);
+    font-size: 15px;
+    margin: 5px;
+}
+
+#filter-mode {
+    background-color: var(--white02);
+    border: 3px solid var(--gray01);
+    border-radius: 5px;
+    color: var(--gray02);
+    font-family: var(--roboto-serif);
+    font-size: 15px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+#filter-mode:focus {
+    outline: 0px;
+}
+
+#filter-criteria {
+    background-color: var(--white02);
+    border: 3px solid var(--gray01);
+    border-radius: 5px;
+    color: var(--gray02);
+    font-family: var(--roboto-serif);
+    font-size: 15px;
+    padding: 5px;
+}
+
+#filter-criteria:focus {
+    outline: 0px;
+}
+
+#order-checkbox {
+    display: none;
+}
+
+label[for='order-checkbox'] {
+    background-color: var(--gray01);
+    border-radius: 10px;
+    color: var(--gray02);
+    font-family: serif !important;
+    font-weight: bold;
+    padding: 8px;
+}
+
+#form-filtro div button {
+    background-color: var(--gray01);
+    border:0px;
+    border-radius: 10px;
+    color: var(--gray02);
+    font-family: serif !important;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+#container-main {
+    background-color: var(--white01);
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px color-mix(in srgb, var(--black01) 50%, rgba(0,0,0,0.0));
+    padding: 15px;
+}
+
+#form-libro {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.edit-input {
+    background-color: var(--gray01);
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 5px color-mix(in srgb, var(--black01) 15%, rgba(0,0,0,0.0));
+    margin-right: 5px;
+    padding: 5px 10px;
+}
+
+.edit-input:focus {
+    outline: 0px;
+}
+
+.edition-button {
+    background-color: rgba(0,0,0,0.0);
+    border: 0px;
+    font-family: serif;
+}
+
+.edition-button:hover {
+    font-weight: bold;
+}
+
+#message {
+    font-family: var(--montserrat-sans_serif);
+    font-size: 14px;
+}
+
+.form-button {
+    background-color: var(--gray01);
+    border: 0px;
+    border-radius: 50%;
+    color: var(--gray02);
+    font-family: serif;
+    font-weight: bold;
+    height: 30px;
+    margin: 2px;
+    padding: 0px;
+    width:30px;
+}
+
+.form-control {
+    background-color: var(--white02);
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 5px color-mix(in srgb, var(--black01) 25%, rgba(0,0,0,0.0));
+    color: var(--black02);
+    height: 30px;
+    margin: 0px 5px;
+    padding: 0px 5px;
+}
+
+.form-control:focus {
+    outline: 0px;
+}
+
+.form-control:focus::placeholder {
+    color: var(--black02);
+}
+
+thead {
+    color: var(--black02);
+    font-family: var(--roboto-serif);
+    height: 30px;
+}
+
+thead tr th{
+    padding: 0px 5px;
+    border-bottom: 3px solid var(--brown01);
+}
+
+tbody tr th {
+    border-bottom: 1px solid var(--gray01);
+    color: var(--gray02);
+    font-family: var(--montserrat-sans_serif);
+    font-weight: 400;
+    padding: 5px 0px;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+#book-table-container {
+    display: flex;
+    flex-flow: column nowrap;
+}

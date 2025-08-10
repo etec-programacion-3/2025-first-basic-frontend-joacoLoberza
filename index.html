@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Biblioteca</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container-main">
+            <h1>Biblioteca</h1>
+
+            <!--Formulario para cargar libros-->
+            <form id="form-libro">
+                    <input type="text" id="name" class="form-control" placeholder="Nombre" required>
+                    <input type="text" id="author" class="form-control" placeholder="Autor">
+                    <input type="text" id="category" class="form-control" placeholder="Categoría" required>
+                    <input type="number" id="isbn" class="form-control" placeholder="Isbn" required>
+                <div id="form-buttons">
+                    <button type="submit" class="form-button ok-button">OK</button>
+                    <button type="reset" id="x-button" class="form-button">X</button>
+                </div>
+            </form>
+            <div id="filter-container">
+                <h2>Filtrar</h2>
+                <form id="form-filtro">
+                    <div>
+                        <label for="filter-mode">Por: </label>
+                        <select id="filter-mode">
+                            <option value=all selected>Todo</option>
+                            <option value="autor">Autor</option>
+                            <option value="titulo">Título</option>
+                            <option value="categoria">Categoría</option>
+                            <option value="id">Id</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="order-checkbox">
+                            <input type="checkbox" id="order-checkbox">
+                            <span>ASC</span>
+                        </label>
+                        <button type="button" id="search">Buscar</button>
+                    </div>                    
+                </form>
+            </div>
+            <!--Tabla de Libros-->
+            <div id="book-table-container">
+                <table id="book-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Autor</th>
+                            <th>Categoría</th>
+                            <th>Isbn</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="mensage" class="mensage"></div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
