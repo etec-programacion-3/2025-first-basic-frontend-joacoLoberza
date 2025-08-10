@@ -2,6 +2,8 @@
 
 Este proyecto está diseñado para que consolides tus conocimientos de JavaScript moderno, consumo de APIs, manipulación del DOM, enrutamiento, patrones de diseño frontend y herramientas modernas antes de dar el salto a React.
 
+## Nombre y Apellido: Joaquín Loberza
+
 ## Estructura del proyecto
 
 Cada carpeta aborda un tema clave con ejemplos prácticos, ejercicios y documentación:
